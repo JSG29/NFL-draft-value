@@ -1,0 +1,12 @@
+# Python cache
+__pycache__/
+*.pyc
+
+# Intermediate data files
+*.parquet
+
+# VS Code settings
+.vscode/
+
+#Local checks/tests
+Checks.py
