@@ -10,7 +10,7 @@ How much surplus value does each draft pick generate, and which positions and dr
 
 ## Methodology
 
-- Download draft and snap-count data using `nfl_data_py`.
+- Download draft and snap-count data using `nflreadpy`.
 - Calculate player utilisation during rookie contracts.
 - Incorporate fifth-year options for eligible first-round picks.
 - Match players to second contracts.
@@ -18,7 +18,7 @@ How much surplus value does each draft pick generate, and which positions and dr
 
 ## Data Sources
 
-- nfl_data_py
+- nflreadpy
 - Spotrac (fifth-year option values)
 
 ## Repository Structure
@@ -32,13 +32,15 @@ README.md
 - Draft data imported
 - Snap utilisation calculated
 - 5th Year Options CSV manually written for first round picks
-- Second contracts matched
+- Rookie and second contracts matched
+- Ported to nflreadpy/polars from nfl_data_py/pandas
+- Cleaned up draft data compilation
 
-## Next Steps
+## To Do
 
-- Clean up draft data (currently have a row for each year of the rookie contract and assume that each player has 5 years)
 - Calculate surplus value for each pick
 - Statistical Analysis
+- Account for players cut before completion of rookie contract (reduces value to the team but also reduces cost if contract is not guaranteed)
 
 ## Decisions: 
 - Manual 5th year options (limited number, difficult to find explicit database, varies based on performance as well as position) ~~for 2018 onwards~~ - cost listed if exercised, blank if declined
@@ -48,3 +50,4 @@ README.md
 ## Handling Notes:
 - Jordan Love's 5th year option was declined and replaced with a smaller one year extension, but he then received a massive extension. How to handle?? Current decision: his value on the rookie contract is based on the one year extension - if his value was higher, he wouldn't have signed the extension.
 - Quinton Coples' 5th year option was exercised, but he was waived before it started. Since 5yos were not guaranteed, he didn't receive anything for this, so treated as if not exercised.
+- Currently assuming that players play their entire rookie contracts, then immediately start a new contract. Issues: players cut on rookie contracts, players who miss a year or more

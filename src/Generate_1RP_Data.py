@@ -1,6 +1,6 @@
-import pandas as pd #py -m pip install nfl_data_py numpy pandas
+import polars as pl #py -m pip install nflreadpy numpy polars
 import numpy as np
-import nfl_data_py as nfl
+import nflreadpy as nfl
 
 # ----------------------------
 # PARAMETERS
@@ -38,7 +38,7 @@ draft = draft[
 
 draft["player_id"] = (
     draft["gsis_id"]
-    .replace("None", pd.NA)
+    .replace("None", pl.NA)
     .fillna(draft["pfr_player_id"])
 )
 
