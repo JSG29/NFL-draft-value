@@ -35,10 +35,10 @@ README.md
 - Rookie and second contracts matched
 - Ported to nflreadpy/polars from nfl_data_py/pandas
 - Cleaned up draft data compilation
+- Calculated surplus value for each pick
 
 ## To Do
 
-- Calculate surplus value for each pick
 - Statistical Analysis
 - Account for players cut before completion of rookie contract (reduces value to the team but also reduces cost if contract is not guaranteed)
 
@@ -51,3 +51,5 @@ README.md
 - Jordan Love's 5th year option was declined and replaced with a smaller one year extension, but he then received a massive extension. How to handle?? Current decision: his value on the rookie contract is based on the one year extension - if his value was higher, he wouldn't have signed the extension.
 - Quinton Coples' 5th year option was exercised, but he was waived before it started. Since 5yos were not guaranteed, he didn't receive anything for this, so treated as if not exercised.
 - Currently assuming that players play their entire rookie contracts, then immediately start a new contract. Issues: players cut on rookie contracts, players who miss a year or more
+- Using actual and spotrac's predicted cap for rookie contracts, and actual cap in first year of the deal inflated by 7% annually for second contracts
+- If players drafted before 2023 do not have a second contract, their second contract value is defined to be the minimum that an nfl player can be paid. If players drafted in 2023 or later do not have a second contract, they are given status TBD and null surplus value.
